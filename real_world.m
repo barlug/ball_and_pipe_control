@@ -3,24 +3,30 @@
 % The current control system is a PID controller.
 %
 % Created by Kyle Naddeo, Mon Jan 3 11:19:49 EST 
-% Modified by YOUR NAME AND DATE
+% Modified by Zachary Heras 2/9/2022
 
 %% Start fresh
 close all; clc; clear device;
 
 %% Connect to device
 % device = open serial communication in the proper COM port
-serialport('COM9', 19200)
+device = serialport('COM10', 19200);
 
 %% Parameters
 target      = 0.5;   % Desired height of the ball [m]
 sample_rate = 0.25;  % Amount of time between controll actions [s]
 
+set_pwm(device, 4000);
+while true
 %% Give an initial burst to lift ball and keep in air
-% set_pwm(add_proper_args); % Initial burst to pick up ball
-pause(0.1) % Wait 0.1 seconds
+ % Initial burst to pick up ball
+pause(0.75) % Wait 0.1 seconds
+set_pwm(device, 2515);
+pause(5)
+set_pwm(device, 2750);
 % set_pwm(add_proper_args); % Set to lesser value to level out somewhere in
 % the pipe
+end
 
 %% Initialize variables
 % action      = ; % Same value of last set_pwm   
