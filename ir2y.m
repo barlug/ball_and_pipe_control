@@ -11,14 +11,14 @@ function [y, pipe_percentage] = ir2y(ir)
 % Modified by: YOUR NAME and DATE
 
 %% Parameters
-% ir_bottom =   % IR reading when ball is at bottom of pipe
-% ir_top    =   % "                        " top of pipe
-% y_top     = 0.9144; % Ball at top of the pipe [m]
+ir_bottom =   0956; % IR reading when ball is at bottom of pipe
+ir_top    =   0060; % "                        " top of pipe
+y_top     = 0.9144; % Ball at top of the pipe [m]
 
 %% Bound the IR reading and send error message 
 % (remeber the IR values are inverted ie small values == large height and large values == small height)
 
 %% Set
-% pipe_percentage = 
-% y = 
+pipe_percentage = 1 - (ir-ir_top)/(ir_bottom-ir_top);  % convert to percentage
+y = y_top*pipe_percentage;          % convert to meters (distance from bottom)
 

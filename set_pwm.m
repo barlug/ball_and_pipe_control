@@ -17,7 +17,7 @@ function action = set_pwm(device, pwm_value)
 %% Send Command
 % action = % string value of pwm_value
 % use the serialport() command options to change the PWM value to action
-    action = strcat('p', string(pwm_value));
+    action = strcat('p', string(pwm_value));    % convert pwm_value to a string, concatenated with 'p'
     device.writeline(action);
 
 end
