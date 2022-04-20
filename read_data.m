@@ -26,9 +26,9 @@ response = read(device,20,"string");
 %% Translate
 % translate the response to 4 doubles using str2double() and
 % extractBetween() (Hint: the response is in the spec sheet)
-distance    = str2double(extractBetween(response, 2, 5));
-pwm         = str2double(extractBetween(response, 7, 10));
-target      = str2double(extractBetween(response, 12, 15));
-deadpan     = str2double(extractBetween(response, 17, 20));
+distance    = str2double(extractBetween(response, 2, 5));       %Take the distance value from the packet
+pwm         = str2double(extractBetween(response, 7, 10));      %Take the pwm value from the packet
+target      = str2double(extractBetween(response, 12, 15));     %Take the target value from the packet
+deadpan     = str2double(extractBetween(response, 17, 20));     %Take the deadpan value from the packet
 
 end
