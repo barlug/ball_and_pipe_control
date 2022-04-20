@@ -43,7 +43,7 @@ while true
     y = ir2y(distance) % Convert from IR reading to distance from bottom [m]
     
     %% Calculate errors for PID controller
-    Matrix_error = [];
+    Matrix_error = [0];
     error      = target - y;        % P
 %     error_sum  = error + error_sum; % I
 %     error_prev = error;             % D
@@ -74,7 +74,7 @@ function PWM = PID_controller(error,Matrix_error,sample_rate)
     Ki = 0.2055;
     Kd = 13.6132
 
-    Matrix_error = [Matrix_error error];
+    Matrix_error = [Matrix_error, error];
     P = Kp * Matrix_error(end);
     I = Ki * sum(Matrix_error);
     D = Kd * ((Matrix_error(end)- Matrix_error(end-1))/sample_rate);
