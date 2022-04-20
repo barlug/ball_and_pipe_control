@@ -14,22 +14,18 @@ device = serialport('COM4', 19200);    % create an object that represents a seri
 
 %% Parameters
 target      = 0.5;   % Desired height of the ball [m]
-sample_rate = 0.25;  % Amount of time between control actions [s]
+sample_rate = 0.001;  % Amount of time between control actions [s]
 
 set_pwm(device, 4000);
 %while true
 %% Give an initial burst to lift ball and keep in air
- % Initial burst to pick up ball
-pause(0.75) % Wait 0.1 seconds
-set_pwm(device, 2515);
-pause(5)
-set_pwm(device, 2750);
-% set_pwm(add_proper_args); % Set to lesser value to level out somewhere in
-% the pipe
-%end
+set_pwm(device, 2500);  % Initial burst to pick up ball
+pause(0.1)              % Wait 0.1 seconds
+set_pwm(device, 1800);  % Set to lesser value to level out somewhere in the pipe
+
 
 %% Initialize variables
-action      = 2750; % Same value of last set_pwm   
+action      = 1800; % Same value of last set_pwm   
 error       = 0;
 error_sum   = 0;
 
@@ -46,7 +42,7 @@ while true
     
     %% Control
     prev_action = action;
-    %action = % Come up with a scheme no answer is right but do something
+    % action = % Come up with a scheme no answer is right but do something
 %     set_pwm(add_proper_args); % Implement action
         
     % Wait for next sample
