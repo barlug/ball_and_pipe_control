@@ -9,10 +9,7 @@ function action = set_pwm(device, pwm_value)
 %
 % Created by:  Kyle Naddeo 1/3/2022
 % Modified by: Zachary Heras 2/9/2022
-
-%% Force PWM value to be valid
-% pwm_value = % Bound value to limits 0 to 4095
-
+% Modified by: Jacob King 2/23/2022
 
 %% Send Command
 % action = % string value of pwm_value
