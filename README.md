@@ -3,28 +3,34 @@ MATLAB codes to open serial communication with a ball and pipe system. The syste
 
 ========================================
 
-# 1) Project Title
-## PID Controller with Genetic Algorithm
+# PID Controller with Genetic Algorithm
 
-# 2) Project Description
-What your application does
+# 1) Project Description (EXPLAIN SCOPE OF PROJECT)
+## What your application does
+Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algorithm tuner to get the ball to reach any specified steady state location in the tube in the fastest time possible. 
 
-Why you used the technologies you used
+# 2) (DISCUSS THEORY BEHIND METHODS)
+## Why you used the technologies you used 
+Almost all control systems in the modern era use PID controllers to reach ideal steady states. 
+While there are much simpler ways to tune a PID, 
+## some of the challenges you faced and features you hope to implement in the future
 
-some of the challenges you faced and features you hope to implement in the future
+# 3) WALK THROUGH HOW TO USE CODE
+## How to Install & Run the Project: What are the required dependancies? (MATLAB, Toolkits, Ball & pipe system, connection testing setup using Putty)
+The Ball & Pipe system is coded using [MATLAB](https://matlab.mathworks.com), which can be downloaded off their website.  
+The system uses the following MATLAB Toolkits: 
 
-# 3) Table of Contents (Optional if Readme is LONG)
-
-# 4) How to Install & Run the Project
-What are the required dependancies? (MATLAB, Toolkits, Ball & pipe system, connection testing setup using Putty)
-
-# 5) How to Use the Project 
+## How to Use the Project 
 Provide instructions & Examples (finding from our testing). Include Screenshots 
 Discuss structure & design principles used in the project   
 
-# 6) Credits & References
+# 4) Credits & References
 Kyle Naddeo for structure of project
 
-Steve Brunton for Genetic Algorithm Code (https://www.youtube.com/watch?v=S5C_z1nVaSg)
+Steve Brunton for Genetic Algorithm Code: [Machine Learning Control: Tuning a PID Controller with Genetic Algorithms](https://www.youtube.com/watch?v=S5C_z1nVaSg)
 
 Mario Leone, Karl Dyer, Michelle Frolio for Systems & Control Floating Ball Apparatus (SCFBA)
+
+# Contributions
+This project was created for Systems & Controls, ECE09321, Rowan University, Spring 2022 Semester. 
+This project will not be updated further, and so Forks are welcomed to further refine the code. 
