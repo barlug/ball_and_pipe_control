@@ -24,15 +24,10 @@ sample_rate = 0.001;  % Amount of time between control actions [s]
 set_pwm(device, 4000);  %Initialize the device to full power to overcome static friction
 pause(0.75)             % Wait 0.1 seconds
 
-% set_pwm(device, 2515);
-% pause(5)
-% set_pwm(device, 2750);
-% set_pwm(add_proper_args); % Set to lesser value to level out somewhere in
-% the pipe
-%end
+set_pwm(device, 1800);  % Set to lesser value to level out somewhere in the pipe
 
 %% Initialize variables
-action      = 4000; % Same value of last set_pwm   
+action      = 1800; % Same value of last set_pwm   
 error       = 0;
 error_sum   = 0;
 
@@ -54,7 +49,7 @@ while true
     PWM = PID_controller(error,Matrix_error,sample_rate);
     set_pwm(PWM)
 
-    pause(sample_rate)              %Waits for next sample
+    pause(sample_rate)              % Waits for next sample
     
     %If error > 0 pwm must increase
     %If error < 0 pwm must decrease
