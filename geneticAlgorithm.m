@@ -25,8 +25,11 @@ c3=6.3787e-4;
 G=c3*c2/(s*(s+c2));                             % Open-loop system
 
 options =  optimoptions(@ga,'PopulationSize',PopSize,'MaxGenerations',MaxGenerations);  %Sets the population size and max generation size for the genetic algorithm
-[x,fval]=ga(@(K)pidtest(G,dt,K),3,-eye(3),zeros(3,1))                                   %The genetic that sets the three gain values for the PID controller
+[x,fval]=ga(@(K)pidtest(G,dt,K),3,-eye(3),zeros(3,1),[],[],[],[],[],options)            %The genetic that sets the three gain values for the PID controller
 
+%The output x is the three gain values Kp, Ki, and Kd for the PID
+%controller.  The fval is the best value of J that was found in all of the
+%generations
 
 %*******************************************************
 % Genetic algorithm tunes for optimized PID parameters, 
