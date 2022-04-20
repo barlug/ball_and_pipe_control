@@ -8,7 +8,7 @@ function [y, pipe_percentage] = ir2y(ir)
 %  where is the ball
 %
 % Created by:  Kyle Naddeo 1/3/2022
-% Modified by: YOUR NAME and DATE
+% Modified by: Jacob King 2/9/2022
 
 %% Parameters
 ir_bottom =   0956; % IR reading when ball is at bottom of pipe

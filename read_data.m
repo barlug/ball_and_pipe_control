@@ -12,9 +12,10 @@ function [distance,pwm,target,deadpan] = read_data(device)
 %  system
 %
 % Created by:  Kyle Naddeo 1/3/2022
-% Modified by: Zachary Heras 2/9/2022
-%=======
 % Modified by: Jacob King 2/2/2022
+% Modified by: Zachary Heras 2/9/2022
+% Modified by: Robert Kerwin 2/23/2022
+%=======
 
 %% Ask nicely for data
 write(device,'s','string');
