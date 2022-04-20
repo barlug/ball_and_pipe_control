@@ -17,22 +17,22 @@ device = serialport('COM4', 19200);    % create an object that represents a seri
 
 %% Parameters
 target      = 0.5;   % Desired height of the ball [m]
-sample_rate = 0.25;  % Amount of time between control actions [s]
+sample_rate = 0.001;  % Amount of time between control actions [s]
 
-set_pwm(device, 4000);
-%while true
 %% Give an initial burst to lift ball and keep in air
  % Initial burst to pick up ball
-pause(0.75) % Wait 0.1 seconds
-set_pwm(device, 2515);
-pause(5)
-set_pwm(device, 2750);
+set_pwm(device, 4000);  %Initialize the device to full power to overcome static friction
+pause(0.75)             % Wait 0.1 seconds
+
+% set_pwm(device, 2515);
+% pause(5)
+% set_pwm(device, 2750);
 % set_pwm(add_proper_args); % Set to lesser value to level out somewhere in
 % the pipe
 %end
 
 %% Initialize variables
-action      = 2750; % Same value of last set_pwm   
+action      = 4000; % Same value of last set_pwm   
 error       = 0;
 error_sum   = 0;
 
@@ -43,15 +43,40 @@ while true
     y = ir2y(distance) % Convert from IR reading to distance from bottom [m]
     
     %% Calculate errors for PID controller
-    error_prev = error;             % D
+    Matrix_error = [];
     error      = target - y;        % P
-    error_sum  = error + error_sum; % I
+%     error_sum  = error + error_sum; % I
+%     error_prev = error;             % D
+   
     
     %% Control
     prev_action = action;
-    %action = % Come up with a scheme no answer is right but do something
-%     set_pwm(add_proper_args); % Implement action
-        
+    PWM = PID_controller(error,Matrix_error,sample_rate);
+    set_pwm(PWM)
+
     pause(sample_rate)              %Waits for next sample
+    
+    %If error > 0 pwm must increase
+    %If error < 0 pwm must decrease
+    
+    %PID controller function
+    %Implement error
+    %action = % Come up with a scheme no answer is right but do something
+    
+    
+    
+    %set_pwm(add_proper_args); % Implement action
+     
 end
 
+function PWM = PID_controller(error,Matrix_error,sample_rate)
+    Kp = 71.5551;
+    Ki = 0.2055;
+    Kd = 13.6132
+
+    Matrix_error = [Matrix_error error];
+    P = Kp * Matrix_error(end);
+    I = Ki * sum(Matrix_error);
+    D = Kd * ((Matrix_error(end)- Matrix_error(end-1))/sample_rate);
+    PWM = P + I + D;
+end
