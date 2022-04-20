@@ -1,6 +1,14 @@
 # Ball and Pipe Control System
 MATLAB codes to open serial communication with a ball and pipe system. The system is made of a vertical cylinder with a ping pong ball controlled by a fan on the bottom and height measured by a time of flight sensor on top. The objective is to balance the ball at a target altitude. 
 
+This Project was created by Kyle Naddeo & Dr. Rasool For Rowan University ECE09321 Systems & Controls class. 
+
+Team Dr. Hanafi:
+- Long "First Try" H. Chau
+- Robert "PID-kid" Kerwin
+- Jacob "Darwin Award Recipient" King
+- Andrew "Ninja" Heyer
+
 ========================================
 
 # PID Controller with Genetic Algorithm
@@ -8,6 +16,24 @@ MATLAB codes to open serial communication with a ball and pipe system. The syste
 # 1) Project Description (EXPLAIN SCOPE OF PROJECT)
 ## What your application does
 Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algorithm tuner to get the ball to reach any specified steady state location in the tube in the fastest time possible. 
+## How do you send actions and recieve data in the correct format?
+### Serial Interface:
+  The SCFBA uses two serial links to communicate with MATLAB. Both utilize a TTL to USB serial translation interface based on the FTDI FT232RL USB to serial IC. Windows recognizes this USB device and will install the necessary drivers automatically.
+  
+ **The links are configured as follows:**
+  - Connector: USB-A male
+  - COM port settings:
+    - Baud: 19200
+    - Data bits: 8
+    - Parity: None
+    - Stop bits: 1
+    - Flow control: None
+  - ACK/NAK: None
+  - All bytes are printable ASCII characters, case insensitive
+  - There is no end of packet terminator
+
+### PID Packets
+![PID Packet Output](https://github.com/barlug/ball_and_pipe_control/blob/main/ReadMe_Images/PID_Packets_Screenshot.jpg)
 
 # 2) (DISCUSS THEORY BEHIND METHODS)
 ## PID Controller 
