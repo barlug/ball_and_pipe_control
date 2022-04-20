@@ -13,18 +13,19 @@ MaxGenerations=10;
 options = optimoptions(@ga,'PopulationSize',PopSize,'MaxGenerations',MaxGenerations);
 
 % create open-loop system
-s=tf('s'); % make transfer function model
-rho_air=1.225; % density of air (kg/m^3)
-v_eq =2.4384; % equilibrium v:= velocity of air at s.s. (m/s)
-mball=0.0027 % mass of ball (kg)
-Vball=268.083e-6; % volume of ball (m^3)
-g=9.80665; % gravity constant (m/s^2)
-c2=2*g/(v_eq)*((mball-rho_air*Vball)/mball);
+s=tf('s');                                      % make transfer function model
+rho_air=1.225;                                  % density of air (kg/m^3)
+v_eq =2.4384;                                   % equilibrium v:= velocity of air at s.s. (m/s)
+mball=0.0027                                    % mass of ball (kg)
+Vball=268.083e-6;                               % volume of ball (m^3)
+g=9.80665;                                      % gravity constant (m/s^2)
+c2=2*g/(v_eq)*((mball-rho_air*Vball)/mball);    % one portion of the 
 c3=6.3787e-4;
 
-G=c3*c2/(s*(s+c2)); % Open-loop system
+G=c3*c2/(s*(s+c2));                             % Open-loop system
 
-[x,fval]=ga(@(K)pidtest(G,dt,K),3,-eye(3),zeros(3,1))
+options =  optimoptions(@ga,'PopulationSize',PopSize,'MaxGenerations',MaxGenerations);  %Sets the population size and max generation size for the genetic algorithm
+[x,fval]=ga(@(K)pidtest(G,dt,K),3,-eye(3),zeros(3,1))                                   %The genetic that sets the three gain values for the PID controller
 
 
 %*******************************************************
