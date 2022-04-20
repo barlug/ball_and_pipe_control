@@ -32,7 +32,7 @@ pause(0.75)             % Wait 0.1 seconds
 %end
 
 %% Initialize variables
-action      = 4000; % Same value of last set_pwm   
+PWM      = 4000; % Same value of last set_pwm   
 error       = 0;
 error_sum   = 0;
 
@@ -50,33 +50,23 @@ while true
    
     
     %% Control
-    prev_action = action;
-    PWM = PID_controller(error,Matrix_error,sample_rate);
-    set_pwm(PWM)
+    PWM = PID_controller(error,Matrix_error,sample_rate);   %Calls the PID_controller function to find the PWM value
+    set_pwm(PWM)                                            %Sets the pwm value to the calculated variable of PWM
 
-    pause(sample_rate)              %Waits for next sample
-    
-    %If error > 0 pwm must increase
-    %If error < 0 pwm must decrease
-    
-    %PID controller function
-    %Implement error
-    %action = % Come up with a scheme no answer is right but do something
+    pause(sample_rate)                                      %Waits for next sample
     
     
-    
-    %set_pwm(add_proper_args); % Implement action
-     
+
 end
 
 function PWM = PID_controller(error,Matrix_error,sample_rate)
-    Kp = 71.5551;
-    Ki = 0.2055;
-    Kd = 13.6132
+    Kp = 71.5551;           %Proportional gain value found from the Genetic Algorithm
+    Ki = 0.2055;            %Integral gain value found from the Genetic Algorithm
+    Kd = 13.6132            %Derivative gain value found from the Genetic Algorithm
 
-    Matrix_error = [Matrix_error, error];
-    P = Kp * Matrix_error(end);
-    I = Ki * sum(Matrix_error);
-    D = Kd * ((Matrix_error(end)- Matrix_error(end-1))/sample_rate);
-    PWM = P + I + D;
+    Matrix_error = [Matrix_error, error];                               %Adds the current error value to a matrix of all the previous errors
+    P = Kp * Matrix_error(end);                                         %Calculates the P by multiplying the Kp gain with the most recent error value
+    I = Ki * sum(Matrix_error);                                         %Calculates the I by multiplying the Ki gain with the total sum of all error values
+    D = Kd * ((Matrix_error(end)- Matrix_error(end-1))/sample_rate);    %Calculates the D by multiplying the Kd gain with the difference of the most recent and second to last gain values divided by the sample rate
+    PWM = P + I + D;                                                    %Sets the PWM variable to the sum of the P,I,D values
 end
