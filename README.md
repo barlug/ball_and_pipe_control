@@ -5,9 +5,6 @@ MATLAB codes to open serial communication with a ball and pipe system. The syste
 
 # PID Controller with Genetic Algorithm
 
-# Table of Contents
-
-
 # 1) Project Description (EXPLAIN SCOPE OF PROJECT)
 ## What your application does
 Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algorithm tuner to get the ball to reach any specified steady state location in the tube in the fastest time possible. 
@@ -29,6 +26,15 @@ The system uses the following MATLAB Toolkits:
 ## How to Use the Project 
 Provide instructions & Examples (finding from our testing). Include Screenshots 
 Discuss structure & design principles used in the project   
+
+### ir2y.m
+
+### read_data.m
+
+### real_world.m
+
+### set_pwm.m
+
 
 # 4) Credits & References
 Kyle Naddeo for structure of project
