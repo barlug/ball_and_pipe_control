@@ -43,6 +43,6 @@ Steve Brunton for Genetic Algorithm Code: [Machine Learning Control: Tuning a PI
 
 Mario Leone, Karl Dyer, Michelle Frolio for Systems & Control Floating Ball Apparatus (SCFBA)
 
-# Contributions
+# 5) Contributions
 This project was created for Systems & Controls, ECE09321, Rowan University, Spring 2022 Semester. 
 This project will not be updated further, and so Forks are welcomed to further refine the code. 
