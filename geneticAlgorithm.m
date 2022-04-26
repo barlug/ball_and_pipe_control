@@ -31,7 +31,7 @@ c3=6.3787e-4;
 G=c3*c2/(s*(s+c2));                             % Open-loop system
 
 %% Genetic algorithm parameters
-PopSize=100;         % set population size
+PopSize=100;          % set population size
 MaxGenerations=1000;  % set generations
 
 %% Configure options for the genetic algorithm function
