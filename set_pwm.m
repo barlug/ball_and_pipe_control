@@ -10,9 +10,10 @@ function action = set_pwm(device, pwm_value)
 % Created by:  Kyle Naddeo 1/3/2022
 % Zachary Heras 2/9/2022
 % Jacob King 2/23/2022
-% Long H. Chau
+% Long H. Chau 
 
 %% Force PWM value to be valid
+% Constrain the pwm value to a minimum of 0 and a maximim of 4095
 if pwm_value > 4095
     pwm_value=4095;
 elseif pwm_value < 0
@@ -24,6 +25,6 @@ end
 % action = % string value of pwm_value
 % use the serialport() command options to change the PWM value to action
     action = strcat('p', string(pwm_value));    % convert pwm_value to a string, concatenated with 'p'
-    device.writeline(action);
+    device.writeline(action);                   % Writes the ASCII data "action" to the device serial port
 
 end
