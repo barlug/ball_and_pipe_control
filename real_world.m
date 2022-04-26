@@ -59,7 +59,7 @@ function PWM = PID_controller(error,Matrix_error,sample_rate)
 
     Matrix_error = [Matrix_error, error];                               %Adds the current error value to a matrix of all the previous errors
     P = Kp * Matrix_error(end);                                         %Calculates the P by multiplying the Kp gain with the most recent error value
-    I = Ki * sum(Matrix_error)*sample_rate;                             %Calculates the I by multiplying the Ki gain with the total sum of all error values
+    I = Ki * sum(Matrix_error.*sample_rate);                            %Calculates the I by multiplying the Ki gain with the total sum of all error values
     D = Kd * ((Matrix_error(end)- Matrix_error(end-1))/sample_rate);    %Calculates the D by multiplying the Kd gain with the difference of the most recent and second to last gain values divided by the sample rate
     PWM = P + I + D;                                                    %Sets the PWM variable to the sum of the P,I,D values
 end
