@@ -13,6 +13,18 @@ Team Dr. Hanafi:
 
 # PID Controller with Genetic Algorithm
 
+In control theory, physical systems are represented by differential equations. In order to not have to solve differential equations, engineers take the representation of these physical systems from the time domain (where you solve differential equations) to the s-domain. In the s-domain, differentiation becomes a simple multiplication operation, and integration becomes a simple division operation. Going from one domain to another is called a transformation, and the Laplace transformation is used to go from the time domain to the s-domain. 
+
+In the s-domain, rather than working with the "t" variable, which is a real number, we work with the "s" variable, which is a complex number. In the s-domain, the input-output relation of the system gives a complete description of the system. This input-output relationship is called the transfer function. In this project, we will work with a closed-loop system which utilizes a negative feedback from the output to the intput. This negative feedback allows the system to inherently adjust to error between the set point (i.e., the input) and the output. Depending on the system type, this negative feedback can either reduce the error to zero over time, or reduce it to a small constant value over time.
+
+A system's behavior depend entirely on its poles and zeros. We completely determine a system's steady-state and transient behavior simply by knowing its poles and zeros. Thus, the poles and zeros of the transfer function, which give a complete desciption of the system, descibe completely the behavior of the system. In order to manipulate the behavior of systems, we must manipulate the poles and zeros of the system. There are three ways to move the poles and zeros of a system. 
+
+The first way is to adjust gain. Adjusting gain moves a system's poles on set root locus, or a set path that the poles take when the gain is adjusted. Adjusting gain has no effect on the zeros of the system, however.
+
+The second way is to redesign the system entirely to have the differential equations which, when put throught the Laplace transformation, give the necessary poles and zeros required for the desired system behavior. This process is necessarily tedious and expensive. The often more prefereable way is to design a controller, which is in itself a transfer function whose set point is the error betweeen the system's input and output, and whose output is the input to the system's transfer function. The controller is the third and most common method to manipulate a systems poles and zeros. Whereas in the first method, where adjusting gain affects the system's poles and zeros but they can only ever exist on a set root locus, controller allows the systems engineer to take the system's poles off the root locus entirely. Controllers do this by adding more zeros and poles to the system.
+
+There are many different types of controller. In this project, we will be focusing on the PID (proportional-integral-derivative) controller, which is in itself made up of two smaller controllers: the PD (proportional-derivative), which addresses the system's transient behavior, and the PI (proportional-integral) controller, which addresses the system's steady-state error (i.e., the error between the set point and the system output as time goes to infinity). Just as like the system's transfer function, which has a gain that controls the location of the poles of the system on the root locus, the PD and PI each have their own gain. The combined gain (known as Kp, Kd, and Ki) determines where the additional poles and zeros and zeros will be added to the system. These additional poles and zeros added by the PID controller in turn affect the poles of the entire system, which in turn affect the steady state and transient response of the system. Finding the perfect values of the Kp, Kd, and Ki to have the desired system response is known as "tuning" the controller. There are many PID controller tuning methods, and the tuning method this project utilizes is called the Genetic Algorithm tuning method, which uses machine Deep Learning to to find the optimal values of Kp, Ki, and Kd.
+
 # 1) Project Description (EXPLAIN SCOPE OF PROJECT)
 ## What your application does
 Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algorithm tuner to get the ball to reach any specified steady state location in the tube in the fastest time possible. 
@@ -43,6 +55,7 @@ Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algo
 ## Genetic Algorithm 
 ### Theory Background
 ### Challenges Faced & Future Edits
+
 
 # 3) WALK THROUGH HOW TO USE CODE
 ## How to Install & Run the Project: What are the required dependancies? (MATLAB, Toolkits, Ball & pipe system, connection testing setup using Putty)
