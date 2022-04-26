@@ -57,8 +57,7 @@ The integral response is used to push the error of the steady state response to 
 ### Challenges Faced & Future Edits 
 
 ## Genetic Algorithm 
-A genetic algorithm models itself after the theory of evolution. It takes a program, makes slight changes to a number of copies, and sees which copy performs the best overall. Once the algorithm finds the best copy, it does the whole process all over again. The first program is called the initialization. Then, after the changes, or mutations, happen, the new ones are called individuals in a generation. The generation is the number of cycles that the process has gone through. Shown below is the cycle that genetic algorithms go through.
-
+A genetic algorithm models itself after the theory of evolution. It takes a program, makes slight changes to a number of copies, and sees which copy performs the best overall. Once the algorithm finds the best copy, it does the whole process all over again. The first program is called the initialization. Then, after the changes, or mutations, happen, the new ones are called individuals in a generation. The generation is the number of cycles that the process has gone through.
 ### Theory Background
 ### Challenges Faced & Future Edits
 
@@ -90,10 +89,15 @@ Mario Leone, Karl Dyer, Michelle Frolio for Systems & Control Floating Ball Appa
 
 Works Cited
 Control Station. (2021, November 15). How does the derivative term affect PID controller performance? How Does the Derivative Affect PID Performance? Retrieved February 23, 2022, from https://controlstation.com/blog/derivative-affect-pid-controller-performance/#:~:text=Derivative%20is%20the%20third%20term%20within%20the%20PID.&text=Seen%20in%20the%20context%20of,seeks%20to%20correct%20for%20error. 
+
 Jayachitra, A., & Vinodha, R. (2014, December 23). Genetic algorithm based PID controller tuning approach for continuous stirred tank reactor. Advances in Artificial Intelligence. Retrieved February 23, 2022, from https://www.hindawi.com/journals/aai/2014/791230/ 
+
 Mallawaarachchi, V. (2017, November 10). How to define a fitness function in a genetic algorithm? Medium. Retrieved February 23, 2022, from https://towardsdatascience.com/how-to-define-a-fitness-function-in-a-genetic-algorithm-be572b9ea3b4 
+
 Neelarghya. (2021, July 26). Reinforcement learning vs genetic algorithm - AI for simulations. Medium. Retrieved February 23, 2022, from https://medium.com/xrpractices/reinforcement-learning-vs-genetic-algorithm-ai-for-simulations-f1f484969c56 
+
 Ni. (2020, March 7). PID theory explained. PID Theory Explained. Retrieved February 23, 2022, from https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html 
+
 TutorialsPoint. (n.d.). Genetic Algorithms. Genetic algorithms tutorial. Retrieved February 23, 2022, from https://www.tutorialspoint.com/genetic_algorithms/index.htm 
 
 # 5) Contributions
