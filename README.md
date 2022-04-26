@@ -49,11 +49,19 @@ Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algo
 
 # 2) (DISCUSS THEORY BEHIND METHODS)
 ## PID Controller 
+Proportional Integral Derivative Control, or PID control, is a type of control system that uses three different types of responses: proportional, integral, and derivative. The responses are controlled with an input and a process variable. The input is the basic input of the system, like a step response. The process variable is the thing that is being changed by the system. A sensor measures a real-world thing, like pressure, temperature, or force, and then sends a signal to the system. The PID is a closed loop system. This means that it takes the error in the system, measured by a sensor or transducer, and uses it to correct itself after the first loop of the system. The system will cycle until it sees that it has reached the desired output. 
+
 ### Theory Background
+The proportional response depends on the difference between the input, or set point, and the process variable.  When using the proportional response, the difference between the input and the process value is called the proportional gain. The gain is used to increase the speed of the system, but if it gets too high then the system will begin to fail or oscillate. 
+The integral response is used to push the error of the steady state response to zero (Ni). It sums the amount of error that has happened while the system is running and adjusts the system so that the effect it has on the steady state is minimal. The derivative response is another way of adjusting the error so that it does not have a large effect on the steady state of the system (Control Station).  The derivative response is for the rate of change of the error of the system.
+
 ### Challenges Faced & Future Edits 
 
 ## Genetic Algorithm 
+A genetic algorithm models itself after the theory of evolution. It takes a program, makes slight changes to a number of copies, and sees which copy performs the best overall. Once the algorithm finds the best copy, it does the whole process all over again. The first program is called the initialization. Then, after the changes, or mutations, happen, the new ones are called individuals in a generation. The generation is the number of cycles that the process has gone through.
+
 ### Theory Background
+In order to implement a genetic algorithm, there are certain functions that are needed. These functions include, the initialization, measure fitness, selection, crossover, and mutation. To begin, the initialization function is the function that creates the initial population of the first generation. Next, the fitness of each individual’s fitness is measured against the given solution. Sometimes the fitness function may take too long to evaluate each of the individuals, so it will look at how close it is. Basically, it will look at the individual, and determine if it is good or not. Next, the selection function takes the fitness values given to each of the individuals and compares them. The individuals that are selected become the parents of the next generation. The first step of creating the next generation is crossover. In one point crossover, a point in the array is chosen, and the values of each parent are swapped with another. The other type of crossover is called multi-point crossover. Multi-point crossover is when more than one crossover point is selected. Then, the values in between or outside of those points are swapped with one another. Finally, the mutation function applies random changes to the offspring of the new parents. These mutations are based off of a probability factor, where the larger the factor, the more mutations occur. Finally, the “offspring” are initialized again with the characteristics of the best individuals from the prior generation. When the fitness function determines that the fitness of an individual is close enough to the desired outcome, the cycle will stop and that individual will be the final solution. 
 ### Challenges Faced & Future Edits
 
 
@@ -66,14 +74,19 @@ The system uses the following MATLAB Toolkits:
 Provide instructions & Examples (finding from our testing). Include Screenshots 
 Discuss structure & design principles used in the project   
 
-### ir2y.m
+### PID Controller Files
+#### real_world.m (Top Level)
 
-### read_data.m
+#### set_pwm.m
 
-### real_world.m
+#### ir2y.m
 
-### set_pwm.m
+#### read_data.m
 
+### Genetic Algorithm Files
+#### geneticAlgorithm.m (Get Tuned Variables)
+
+#### pidtest.m
 
 # 4) Credits & References
 Kyle Naddeo for structure of project
@@ -81,6 +94,19 @@ Kyle Naddeo for structure of project
 Steve Brunton for Genetic Algorithm Code: [Machine Learning Control: Tuning a PID Controller with Genetic Algorithms](https://www.youtube.com/watch?v=S5C_z1nVaSg)
 
 Mario Leone, Karl Dyer, Michelle Frolio for Systems & Control Floating Ball Apparatus (SCFBA)
+
+Works Cited
+Control Station. (2021, November 15). How does the derivative term affect PID controller performance? How Does the Derivative Affect PID Performance? Retrieved February 23, 2022, from https://controlstation.com/blog/derivative-affect-pid-controller-performance/#:~:text=Derivative%20is%20the%20third%20term%20within%20the%20PID.&text=Seen%20in%20the%20context%20of,seeks%20to%20correct%20for%20error. 
+
+Jayachitra, A., & Vinodha, R. (2014, December 23). Genetic algorithm based PID controller tuning approach for continuous stirred tank reactor. Advances in Artificial Intelligence. Retrieved February 23, 2022, from https://www.hindawi.com/journals/aai/2014/791230/ 
+
+Mallawaarachchi, V. (2017, November 10). How to define a fitness function in a genetic algorithm? Medium. Retrieved February 23, 2022, from https://towardsdatascience.com/how-to-define-a-fitness-function-in-a-genetic-algorithm-be572b9ea3b4 
+
+Neelarghya. (2021, July 26). Reinforcement learning vs genetic algorithm - AI for simulations. Medium. Retrieved February 23, 2022, from https://medium.com/xrpractices/reinforcement-learning-vs-genetic-algorithm-ai-for-simulations-f1f484969c56 
+
+Ni. (2020, March 7). PID theory explained. PID Theory Explained. Retrieved February 23, 2022, from https://www.ni.com/en-us/innovations/white-papers/06/pid-theory-explained.html 
+
+TutorialsPoint. (n.d.). Genetic Algorithms. Genetic algorithms tutorial. Retrieved February 23, 2022, from https://www.tutorialspoint.com/genetic_algorithms/index.htm 
 
 # 5) Contributions
 This project was created for Systems & Controls, ECE09321, Rowan University, Spring 2022 Semester. 

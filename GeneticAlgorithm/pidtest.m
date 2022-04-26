@@ -12,7 +12,7 @@ CTRLtf=K/(1+K*G);                               % closed-loop transfer function
 u=lsim(CTRLtf,1-y,t);
 Q=1;
 R=0.001;
-J=dt*sum(Q*(1-y(:)).^2+R*u(:).^2)               % the LQR cost function made to have the fastest rise time while also minimizing steady state error
+J=dt*sum(Q*(1-y(:)).^2+R*u(:).^2);               % the LQR cost function made to have the fastest rise time while also minimizing steady state error
 
 [y,t]=step(ClosedLoop,t);                       % Graphs the individuals as the populations and generations are made
 plot(t,y,'LineWidth',2,'Color','r')
