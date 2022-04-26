@@ -71,14 +71,19 @@ The system uses the following MATLAB Toolkits:
 Provide instructions & Examples (finding from our testing). Include Screenshots 
 Discuss structure & design principles used in the project   
 
-### ir2y.m
+### PID Controller Files
+#### real_world.m (Top Level)
 
-### read_data.m
+#### set_pwm.m
 
-### real_world.m
+#### ir2y.m
 
-### set_pwm.m
+#### read_data.m
 
+### Genetic Algorithm Files
+#### geneticAlgorithm.m (Get Tuned Variables)
+
+#### pidtest.m
 
 # 4) Credits & References
 Kyle Naddeo for structure of project
