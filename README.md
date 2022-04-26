@@ -52,8 +52,7 @@ Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algo
 Proportional Integral Derivative Control, or PID control, is a type of control system that uses three different types of responses: proportional, integral, and derivative. The responses are controlled with an input and a process variable. The input is the basic input of the system, like a step response. The process variable is the thing that is being changed by the system. A sensor measures a real-world thing, like pressure, temperature, or force, and then sends a signal to the system. The PID is a closed loop system. This means that it takes the error in the system, measured by a sensor or transducer, and uses it to correct itself after the first loop of the system. The system will cycle until it sees that it has reached the desired output. 
 
 ### Theory Background
-The proportional response depends on the difference between the input, or set point, and the process variable.  When using the proportional response, the difference between the input and the process value is called the proportional gain. The gain is used to increase the speed of the system, but if it gets too high then the system will begin to fail or oscillate. 
-The integral response is used to push the error of the steady state response to zero (Ni). It sums the amount of error that has happened while the system is running and adjusts the system so that the effect it has on the steady state is minimal. The derivative response is another way of adjusting the error so that it does not have a large effect on the steady state of the system (Control Station).  The derivative response is for the rate of change of the error of the system.
+
 
 ### Challenges Faced & Future Edits 
 
