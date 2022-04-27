@@ -77,7 +77,14 @@ The implementation into the PID controller was simple as the Genetic Algorithm o
 # 3) WALK THROUGH HOW TO USE CODE
 ## How to Install & Run the Project: What are the required dependancies? (MATLAB, Toolkits, Ball & pipe system, connection testing setup using Putty)
 The Ball & Pipe system is coded using [MATLAB](https://matlab.mathworks.com), which can be downloaded off their website.  
-The system uses the following MATLAB Toolkits: 
+he system uses the following MATLAB Toolkits: 
+- Symbolic Math Toolbox
+- Control System Toolbox
+- Optimization Toolbox
+- Global Optimization Toolbox
+
+All four of these toolboxes can be added onto MATLAB for free using the Add-On Explorer found on the HOME tab of MATLAB.
+
 
 ## How to Use the Project 
 Provide instructions & Examples (finding from our testing). Include Screenshots 
