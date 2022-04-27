@@ -64,6 +64,8 @@ The purpose of the proportional is to have a large, immediate reaction on the ou
 
 ### Challenges Faced & Future Edits 
 
+The PID controller was implemented by first calculating the height of the ball within the pipe, and then subtracting that by the target height that we want the ball to stay at.  This value is the error value for the system and it is found every time the ball and pipe system is sampled, in this case, it is every 0.25 seconds.  One issue we initially encountered was the implementation of the various aspects of the controller, the proportional, the integral, and the derivative, and relating them to the error value.  This was a simple error that was fixed by updating the formula for the PID controller in real_world.m to the proper relationship. The PID controller seems to be working as intended.  The system is taking into account the calculated error value properly and it tries to adjust the height of the ball accordingly.  While this system is working properly, the gain values that the PID controller was tuned to are not 100% accurate causing the ball to not reach a steady state at the half a meter height we desired.  This requires future work with the tuning method, Genetic algorithm, as detailed in the next section.
+
 ## Genetic Algorithm 
 A genetic algorithm models itself after the theory of evolution. It takes a program, makes slight changes to a number of copies, and sees which copy performs the best overall. Once the algorithm finds the best copy, it does the whole process all over again. The first program is called the initialization. Then, after the changes, or mutations, happen, the new ones are called individuals in a generation. The generation is the number of cycles that the process has gone through.
 
