@@ -83,7 +83,7 @@ The implementation into the PID controller was simple as the Genetic Algorithm o
 
 
 # 3) WALK THROUGH HOW TO USE CODE
-## How to Install & Run the Project: What are the required dependancies? (MATLAB, Toolkits, Ball & pipe system, connection testing setup using Putty)
+## How to Install & Run the Project: What are the required dependancies?
 The Ball & Pipe system is coded using [MATLAB](https://matlab.mathworks.com), which can be downloaded off their website.  
 he system uses the following MATLAB Toolkits: 
 - Symbolic Math Toolbox
@@ -95,12 +95,11 @@ All four of these toolboxes can be added onto MATLAB for free using the Add-On E
 
 
 ## How to Use the Project 
-Provide instructions & Examples (finding from our testing). Include Screenshots 
-Discuss structure & design principles used in the project   
+  
 
 ### PID Controller Files
 #### real_world.m (Top Level)
-The “real_world” function is the top level function, as well as the function that implements the PID controller into the system. The first thing it does is connect to the serial port. Then, it gives the system a kick in order to get the ball into the air, so the pwm is set to 3000. Next, it determines if it needs to go up or down by comparing the current height to the target set by the user. Using this error, it calculates each part of the PID. The gain for each part was calculated using the genetic algorithm. The proportional response is calculated by multiplying the most recent error value by the gain. The integral response is calculated by multiplying the gain by the sum of the error time the sampling rate. Finally, the derivative response if found by multiplying the derivative gain by the difference in the most recent and second most recent error values, divided by the sampling rate. To find the pwm, the responses are summed together. 
+The “real_world” function is the top level function, as well as the function that implements the PID controller into the system. The first thing it does is connect to the serial port. When using this code for yourself, make sure to check which COM port the ball and pipe system is connected to in Device Manager and change the COM port listed in this file to match. Then, it gives the system a kick in order to get the ball into the air, so the pwm is set to 3000. Next, it determines if it needs to go up or down by comparing the current height to the target set by the user. Using this error, it calculates each part of the PID. The gain for each part was calculated using the genetic algorithm. The proportional response is calculated by multiplying the most recent error value by the gain. The integral response is calculated by multiplying the gain by the sum of the error time the sampling rate. Finally, the derivative response if found by multiplying the derivative gain by the difference in the most recent and second most recent error values, divided by the sampling rate. To find the pwm, the responses are summed together. 
 
 The target variable is the desired location where the ball will settle. The sample rate is the time in between the execution of each control signal, and it is used with the pause() function to wait to send the next signal. Kp, Ki, and Kd are the gains of each of their respective responses. These values can be changed to change the response of the system. 
 
