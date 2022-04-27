@@ -8,6 +8,7 @@ Team Dr. Hanafi:
 - Robert "PID-kid" Kerwin
 - Jacob "Darwin Award Recipient" King
 - Andrew "Ninja" Heyer
+
 ========================================
 ![Ball and Pipe Control System Image](https://github.com/barlug/ball_and_pipe_control/blob/main/ReadMe_Images/Ball_Pipe_system.jpg)
 
@@ -72,6 +73,7 @@ A genetic algorithm can find many solutions to one problem. Each time the progra
 In order to implement a genetic algorithm, there are certain functions that are needed. These functions include, the initialization, measure fitness, selection, crossover, and mutation. To begin, the initialization function is the function that creates the initial population of the first generation. Next, the fitness of each individual’s fitness is measured against the given solution. Sometimes the fitness function may take too long to evaluate each of the individuals, so it will look at how close it is. Basically, it will look at the individual, and determine if it is good or not. Next, the selection function takes the fitness values given to each of the individuals and compares them. The individuals that are selected become the parents of the next generation. The first step of creating the next generation is crossover. In one point crossover, a point in the array is chosen, and the values of each parent are swapped with another. The other type of crossover is called multi-point crossover. Multi-point crossover is when more than one crossover point is selected. Then, the values in between or outside of those points are swapped with one another. Finally, the mutation function applies random changes to the offspring of the new parents. These mutations are based off of a probability factor, where the larger the factor, the more mutations occur. Finally, the “offspring” are initialized again with the characteristics of the best individuals from the prior generation. When the fitness function determines that the fitness of an individual is close enough to the desired outcome, the cycle will stop and that individual will be the final solution. 
 
 ![GA_Diagram](https://github.com/barlug/ball_and_pipe_control/blob/main/ReadMe_Images/Genetic_Algorithm_Diagram.jpg)
+
 ### Challenges Faced & Future Edits
 Creating the Genetic Algorithm was the hardest part of this process.  Luckily, two professors from Cambridge, Steven L. Brunton, and J. Nathan Kutz, had already pioneered the use of Genetic Algorithms in MATLAB.  Using their example code as a guide, the Genetic Algorithm implementation was created.  The other challenge of the Genetic Algorithm was developing a proper fitness function for the individuals of each generation to be graded.  We got over this challenge by implementing a Linear Quadratic Regulator (LQR) cost function that prioritized a fast rise time and a low steady-state error.
 
