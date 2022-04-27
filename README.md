@@ -80,6 +80,9 @@ Discuss structure & design principles used in the project
 
 ### PID Controller Files
 #### real_world.m (Top Level)
+The “real_world” function is the top level function, as well as the function that implements the PID controller into the system. The first thing it does is connect to the serial port. Then, it gives the system a kick in order to get the ball into the air, so the pwm is set to 3000. Next, it determines if it needs to go up or down by comparing the current height to the target set by the user. Using this error, it calculates each part of the PID. The gain for each part was calculated using the genetic algorithm. The proportional response is calculated by multiplying the most recent error value by the gain. The integral response is calculated by multiplying the gain by the sum of the error time the sampling rate. Finally, the derivative response if found by multiplying the derivative gain by the difference in the most recent and second most recent error values, divided by the sampling rate. To find the pwm, the responses are summed together. 
+
+The target variable is the desired location where the ball will settle. The sample rate is the time in between the execution of each control signal, and it is used with the pause() function to wait to send the next signal. Kp, Ki, and Kd are the gains of each of their respective responses. These values can be changed to change the response of the system. 
 
 #### set_pwm.m
 The ”set_pwm” function is responsible for sending the calculated pwm to the ball and pipe system. The first thing it does is make sure the calculated pwm value is within the boundaries of the project. It does this by using an if statement. If the value is greater than 4095, then it sets it to 4095, and if the value is less than 0, then it sets it to zero. After this, the function converts the double variable back to a string. Finally, it sends the value to the device using the serial port.
