@@ -109,6 +109,7 @@ Pidtest() is the function call for the cost function to evaluate the fitness of 
 3 is the number of variables that are being found through the genetic algorithm. 
 
 #### pidtest.m
+The “pidtest” function is the cost or fitness function for the genetic algorithm. It first puts the pid controller in series with the control function: K=parms(1)+parms(2)/s+parms(3)*s/(1+.001*s).parsm(1) is the proportional response, parms(2) is the integral response, and parms(3) is the derivative response. The derivative has an additional part in order to drive it to zero at very high frequencies and prevent any instability. Then, it creates a feedback loop around the plants using the feedback() MATLAB function. In order to test each individual, a LQR, or a linear quadratic regulator, to minimize the error in the system while finding the fastest rise time that the system can possibly have. “drawnow” is used to update the figure for every iteration of the genetic algorithm. 
 
 # 4) Credits & References
 Kyle Naddeo for structure of project
