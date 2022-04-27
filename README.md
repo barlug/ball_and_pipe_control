@@ -82,6 +82,7 @@ Discuss structure & design principles used in the project
 #### real_world.m (Top Level)
 
 #### set_pwm.m
+The ”set_pwm” function is responsible for sending the calculated pwm to the ball and pipe system. The first thing it does is make sure the calculated pwm value is within the boundaries of the project. It does this by using an if statement. If the value is greater than 4095, then it sets it to 4095, and if the value is less than 0, then it sets it to zero. After this, the function converts the double variable back to a string. Finally, it sends the value to the device using the serial port.
 
 #### ir2y.m
 The “ir2y” function of the program is responsible for converting the sensor reading to a y value that the program can use. In order to get the ball’s position in the tube, the program uses the equation: pipe_percentage = 1 - (ir-ir_top)/(ir_bottom-ir_top). In this equation, ir is the reading from the sensor, ir_top is the value of the sensor when the ball is at the top of the tube, and ir_bottom is the value of the sensor when the ball is at the bottom of the tube. Since the sensor is at the top of the tube, if the pipe_percentage was 25%, that means that the ball was 25% away from the top of the tube. In order to get the value with reference from the bottom, the percentage was subtracted from one. Using the previous example, if the reading was 25%, subtracting it from one would yield a value of 75%.  Finally, to find a value for y, the pipe_percentage is multiplied by the actual height of the tube, 0.9144 meters. 
