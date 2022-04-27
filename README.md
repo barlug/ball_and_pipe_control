@@ -25,7 +25,7 @@ The second way is to redesign the system entirely to have the differential equat
 
 There are many different types of controller. In this project, we will be focusing on the PID (proportional-integral-derivative) controller, which is in itself made up of two smaller controllers: the PD (proportional-derivative), which addresses the system's transient behavior, and the PI (proportional-integral) controller, which addresses the system's steady-state error (i.e., the error between the set point and the system output as time goes to infinity). Just as like the system's transfer function, which has a gain that controls the location of the poles of the system on the root locus, the PD and PI each have their own gain. The combined gain (known as Kp, Kd, and Ki) determines where the additional poles and zeros and zeros will be added to the system. These additional poles and zeros added by the PID controller in turn affect the poles of the entire system, which in turn affect the steady state and transient response of the system. Finding the perfect values of the Kp, Kd, and Ki to have the desired system response is known as "tuning" the controller. There are many PID controller tuning methods, and the tuning method this project utilizes is called the Genetic Algorithm tuning method, which uses machine Deep Learning to to find the optimal values of Kp, Ki, and Kd.
 
-# 1) Project Description (EXPLAIN SCOPE OF PROJECT)
+# 1) Project Description
 ## What your application does
 Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algorithm tuner to get the ball to reach any specified steady state location in the tube in the fastest time possible. 
 ## How do you send actions and recieve data in the correct format?
@@ -47,7 +47,7 @@ Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algo
 ### PID Packets
 ![PID Packet Output](https://github.com/barlug/ball_and_pipe_control/blob/main/ReadMe_Images/PID_Packets_Screenshot.jpg)
 
-# 2) (DISCUSS THEORY BEHIND METHODS)
+# 2) The Theory Behind the Controller
 ## PID Controller 
 Proportional Integral Derivative Control, or PID control, is a type of control system that uses three different types of responses: proportional, integral, and derivative. The responses are controlled with an input and a process variable. The input is the basic input of the system, like a step response. The process variable is the thing that is being changed by the system. A sensor measures a real-world thing, like pressure, temperature, or force, and then sends a signal to the system. The PID is a closed loop system. This means that it takes the error in the system, measured by a sensor or transducer, and uses it to correct itself after the first loop of the system. The system will cycle until it sees that it has reached the desired output. 
 
