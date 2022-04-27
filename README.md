@@ -84,8 +84,10 @@ Discuss structure & design principles used in the project
 #### set_pwm.m
 
 #### ir2y.m
+The “ir2y” function of the program is responsible for converting the sensor reading to a y value that the program can use. In order to get the ball’s position in the tube, the program uses the equation: pipe_percentage = 1 - (ir-ir_top)/(ir_bottom-ir_top). In this equation, ir is the reading from the sensor, ir_top is the value of the sensor when the ball is at the top of the tube, and ir_bottom is the value of the sensor when the ball is at the bottom of the tube. Since the sensor is at the top of the tube, if the pipe_percentage was 25%, that means that the ball was 25% away from the top of the tube. In order to get the value with reference from the bottom, the percentage was subtracted from one. Using the previous example, if the reading was 25%, subtracting it from one would yield a value of 75%.  Finally, to find a value for y, the pipe_percentage is multiplied by the actual height of the tube, 0.9144 meters. 
 
 #### read_data.m
+The ”read_data” function is used to read the data coming from the ball_and_pipe itself. The data packet from the assembly contains the ir value from the sensor, used in the “ir2y” function, and the settings put forth by the knobs. These include, target, deadpan, and pwm. The function uses the str2double() and extractBetween() MATLAB functions. Due to the data packet structure, each of these values need to be extracted from the packet. This is done using the extractBetween() function. In this function, the first element is the place the data is coming from, and the next two are the start position and end position. Then, str2double() converts the string extracted from the data packet to a double variable that can be used to find the pipe percentage. 
 
 ### Genetic Algorithm Files
 #### geneticAlgorithm.m (Get Tuned Variables)
