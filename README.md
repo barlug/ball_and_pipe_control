@@ -8,6 +8,8 @@ Team Dr. Hanafi:
 - Robert "PID-kid" Kerwin
 - Jacob "Darwin Award Recipient" King
 - Andrew "Ninja" Heyer
+========================================
+![Ball and Pipe Control System Image](https://github.com/barlug/ball_and_pipe_control/blob/main/ReadMe_Images/Ball_Pipe_system.jpg)
 
 ========================================
 
