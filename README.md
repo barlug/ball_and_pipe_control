@@ -52,6 +52,11 @@ Our group's Ball & Pipe Controller utilizes a PID controller with a genetic Algo
 Proportional Integral Derivative Control, or PID control, is a type of control system that uses three different types of responses: proportional, integral, and derivative. The responses are controlled with an input and a process variable. The input is the basic input of the system, like a step response. The process variable is the thing that is being changed by the system. A sensor measures a real-world thing, like pressure, temperature, or force, and then sends a signal to the system. The PID is a closed loop system. This means that it takes the error in the system, measured by a sensor or transducer, and uses it to correct itself after the first loop of the system. The system will cycle until it sees that it has reached the desired output. 
 
 ### Theory Background
+The design of a PID controller consists of two active compensators: an active PD controller followed by an active PI controller. A block diagram of the general PID controller is shown below:
+
+![PID Controller Image](https://github.com/barlug/ball_and_pipe_control/blob/main/ReadMe_Images/PID_Controller.jpg)
+
+The purpose of the proportional is to have a large, immediate reaction on the output to bring the current value closer to the desired value (set point). As the error lessens, the influence of the proportional value lessens. Every time the controller performs the PID calculation, the new integral value is added to the integral total. The integral value will not have an immediate influence, but the longer it takes for the process value to reach the desired value, the more effect the integral will have. The purpose of the derivative is to predict where the process value is going, and bias the output in the opposite direction of the proportional and integral values. This is done to prevent the controller from overshooting the set point. 
 
 
 ### Challenges Faced & Future Edits 
